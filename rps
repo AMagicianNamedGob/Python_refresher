@@ -1,0 +1,26 @@
+import random
+
+choices = ["rock", "paper", "scissors"]
+score = [0, 0]
+
+while max(score) < 3:
+    user = input("rock, paper, or scissors? ").strip().lower()
+    if user not in choices:
+        print("⚠️ Invalid choice, try again.")
+        continue
+
+    comp = random.choice(choices)
+    print(f"Computer picked: {comp}")
+
+    if user == comp:
+        print("Tie!")
+    elif (user, comp) in [("rock","scissors"), ("paper","rock"), ("scissors","paper")]:
+        print("You win!")
+        score[0] += 1
+    else:
+        print("Computer wins!")
+        score[1] += 1
+
+    print(f"Score: {score[0]} - {score[1]}")
+
+print("Game over.")
